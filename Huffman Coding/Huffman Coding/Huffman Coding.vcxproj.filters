@@ -18,5 +18,27 @@
     <ClCompile Include="HuffmanCoding.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="huff.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="huff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="countedChars.out">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data.in">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -138,7 +138,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data.c" />
+    <ClCompile Include="huff.c" />
     <ClCompile Include="HuffmanCoding.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="data.h" />
+    <ClInclude Include="huff.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="countedChars.out" />
+    <None Include="data.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
