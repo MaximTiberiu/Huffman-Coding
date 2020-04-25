@@ -1,4 +1,5 @@
 #pragma once
+#include <stdbool.h>
 
 /// structs
 /* HuffTreeNode este structura in care memoram caracterul, frecventa acestuia, dar si nodurile copii din arbore, left si right*/
@@ -21,3 +22,5 @@ struct HuffTree
 
 /// functions
 void printEncodedChars(char*, unsigned int*, unsigned int, char*);
+struct HuffTreeNode* buildHuffTreeFindRoot(char*, unsigned int*, unsigned int);
+bool isLeaf(struct HuffTreeNode*);

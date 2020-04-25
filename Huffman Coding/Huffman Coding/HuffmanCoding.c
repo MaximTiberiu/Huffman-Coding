@@ -21,5 +21,15 @@ int main()
     createCharsFreqArrays(&chars, &freq, arr, &size);
     
     printEncodedChars(chars, freq, size, "codes.out");
+
+    //printEncodedText("data.in", "encodedText.out", chars, freq, size);
+
+    FILE* fout = fopen("encodedText.out", "w");
+    bool* printArr = (bool*)malloc(50 * sizeof(bool));
+    struct HuffTreeNode* root = buildHuffTreeFindRoot(chars, freq, size);
+
+    unsigned int i = 0;
+    getCharCode(root, 'a', printArr, &i, fout);
+    fclose(fout);
     return 0;
 }

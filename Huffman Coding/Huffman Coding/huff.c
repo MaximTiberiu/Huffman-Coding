@@ -239,7 +239,7 @@ void printEncodedChars(char* charArray, unsigned int* freqArray, unsigned int si
     struct HuffTreeNode* root = buildHuffTreeFindRoot(charArray, freqArray, size);
 
     bool* printArr = (bool*)malloc((size / 2) * sizeof(bool)); // printArr este vectorul in care memoram codul de pe fiecare nivel; 
-                                                       // size / 2 - numar maxim de nivele ale arborelui
+                                                               // (size / 2) - numar maxim de nivele ale arborelui
     assert(printArr != NULL);
 
     FILE* fout = fopen(outputFile, "w");
