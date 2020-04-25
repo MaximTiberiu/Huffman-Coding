@@ -14,7 +14,7 @@ struct HuffTreeNode
     struct HuffTreeNode *left, *right;
 };
 
-/* HuffTree este structura in care se memoreaza arborele binar, care este, de fapt un heap, format din noduri de tip HuffTreeNode*/
+/* HuffTree este structura in care se memoreaza arborele binar, format din noduri de tip HuffTreeNode*/
 struct HuffTree
 {
     unsigned int currSize; /// dimensiunea  curenta a arborelui 
@@ -234,13 +234,12 @@ void printCodes(struct HuffTreeNode* root, bool* printArr, unsigned int currSize
     }
 }
 
-
-void HuffmanCoding(char* charArray, unsigned int* freqArray, unsigned int size, char* outputFile)
+void printEncodedChars(char* charArray, unsigned int* freqArray, unsigned int size, char* outputFile)
 {
     struct HuffTreeNode* root = buildHuffTreeFindRoot(charArray, freqArray, size);
 
-    bool* printArr = (bool*)malloc(50 * sizeof(bool)); // printArr este vectorul in care memoram codul de pe fiecare nivel; 
-                                                       // 50 - numar predefinit maxim de nivele
+    bool* printArr = (bool*)malloc((size / 2) * sizeof(bool)); // printArr este vectorul in care memoram codul de pe fiecare nivel; 
+                                                       // size / 2 - numar maxim de nivele ale arborelui
     assert(printArr != NULL);
 
     FILE* fout = fopen(outputFile, "w");

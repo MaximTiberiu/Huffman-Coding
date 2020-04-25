@@ -24,12 +24,18 @@
     <ClCompile Include="huff.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="encode_decode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="huff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="encode_decode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

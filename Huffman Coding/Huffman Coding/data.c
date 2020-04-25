@@ -5,6 +5,12 @@
 #include <assert.h>
 #include <stdbool.h>
 
+/*Functie care verifica daca fisierul .in este gol*/
+bool isFileEmpty(FILE* fin)
+{
+    return true;
+}
+
 /* countChars contorizeaza fiecare caracter prezent in textul supus codarii*/
 unsigned int* countChars(char* inputFile)
 {

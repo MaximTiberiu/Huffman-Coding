@@ -5,6 +5,8 @@
 
 // .h files
 #include "data.h"
+#include "huff.h"
+#include "encode_decode.h"
  
 int main()
 {
@@ -18,6 +20,6 @@ int main()
     unsigned int size = 0;
     createCharsFreqArrays(&chars, &freq, arr, &size);
     
-    HuffmanCoding(chars, freq, size, "codes.out");
+    printEncodedChars(chars, freq, size, "codes.out");
     return 0;
 }
