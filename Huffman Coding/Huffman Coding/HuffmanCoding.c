@@ -15,7 +15,9 @@ int main()
     unsigned int* freq;
     char* chars;
 
-    createCharsFreqArrays(&chars, &freq, arr);
-    printf("%c %u", chars[1], freq[1]);
+    unsigned int size = 0;
+    createCharsFreqArrays(&chars, &freq, arr, &size);
+    
+    HuffmanCoding(chars, freq, size, "codes.out");
     return 0;
 }

@@ -1,38 +1,38 @@
-Caracterul '\n' : 5
-Caracterul 'space' : 90
-Caracterul ''' : 1
-Caracterul ',' : 4
-Caracterul '.' : 4
-Caracterul '0' : 3
-Caracterul '1' : 2
-Caracterul '5' : 1
-Caracterul '6' : 1
-Caracterul '9' : 1
-Caracterul 'A' : 1
-Caracterul 'I' : 6
-Caracterul 'L' : 5
-Caracterul 'M' : 1
-Caracterul 'P' : 1
-Caracterul 'a' : 28
-Caracterul 'b' : 5
-Caracterul 'c' : 10
-Caracterul 'd' : 16
-Caracterul 'e' : 59
-Caracterul 'f' : 6
-Caracterul 'g' : 11
-Caracterul 'h' : 14
-Caracterul 'i' : 32
-Caracterul 'k' : 7
-Caracterul 'l' : 17
-Caracterul 'm' : 18
-Caracterul 'n' : 38
-Caracterul 'o' : 25
-Caracterul 'p' : 18
-Caracterul 'r' : 24
-Caracterul 's' : 39
-Caracterul 't' : 43
-Caracterul 'u' : 17
-Caracterul 'v' : 5
-Caracterul 'w' : 6
-Caracterul 'x' : 2
-Caracterul 'y' : 13
+\n : 5
+space : 90
+' : 1
+, : 4
+. : 4
+0 : 3
+1 : 2
+5 : 1
+6 : 1
+9 : 1
+A : 1
+I : 6
+L : 5
+M : 1
+P : 1
+a : 28
+b : 5
+c : 10
+d : 16
+e : 59
+f : 6
+g : 11
+h : 14
+i : 32
+k : 7
+l : 17
+m : 18
+n : 38
+o : 25
+p : 18
+r : 24
+s : 39
+t : 43
+u : 17
+v : 5
+w : 6
+x : 2
+y : 13

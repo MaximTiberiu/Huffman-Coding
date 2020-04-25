@@ -40,5 +40,14 @@
     <None Include="data.in">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="codes.out">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="encodedText.out">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="decodedText.out">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
