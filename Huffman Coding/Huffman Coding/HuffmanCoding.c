@@ -6,30 +6,36 @@
 // .h files
 #include "data.h"
 #include "huff.h"
-#include "encode_decode.h"
  
 int main()
 {
-    unsigned int* arr;
-    arr = countChars("data.in");
-    printCountedChars(arr, "countedChars.out");
+    if (isFileEmpty("data.in"))
+    {
+        printf("Fisierul este gol! Te rog completeaza fisierul!...\n");
+        return 0;
+    }
+    else
+    {
+        unsigned int* freqCharsArray;
+        freqCharsArray = countChars("data.in");
+        printCountedChars(freqCharsArray, "countedChars.out");
 
-    unsigned int* freq;
-    char* chars;
+        unsigned int* freqArray;
+        char* charArray;
 
-    unsigned int size = 0;
-    createCharsFreqArrays(&chars, &freq, arr, &size);
-    
-    printEncodedChars(chars, freq, size, "codes.out");
+        unsigned int size = 0;
+        createCharsFreqArrays(&charArray, &freqArray, freqCharsArray, &size);
 
-    //printEncodedText("data.in", "encodedText.out", chars, freq, size);
+        printEncodedChars(charArray, freqArray, size, "codes.out");
 
-    FILE* fout = fopen("encodedText.out", "w");
-    bool* printArr = (bool*)malloc(50 * sizeof(bool));
-    struct HuffTreeNode* root = buildHuffTreeFindRoot(chars, freq, size);
+        printEncodedText("data.in", "encodedText.out", charArray, freqArray, size);
+        printDecodedText("encodedText.out", "decodedText.out", charArray, freqArray, size);
 
-    unsigned int i = 0;
-    getCharCode(root, 'a', printArr, &i, fout);
-    fclose(fout);
-    return 0;
+        printf("Codarea Huffman a fost realizata cu succes!\nVerifica urmatoarele fisiere:\n");
+        printf("\t-'countedChars.out', pentru frecventa caracterelor;\n");
+        printf("\t-'codes.out', pentru codurile caracterelor;\n");
+        printf("\t-'encodedText.out', pentru textul codat;\n");
+        printf("\t-'decodedText.out', pentru textul decodat.\n\n\n\n\n");
+        return 0;
+    }
 }

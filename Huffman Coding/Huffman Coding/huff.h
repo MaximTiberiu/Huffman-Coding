@@ -21,6 +21,12 @@ struct HuffTree
 };
 
 /// functions
-void printEncodedChars(char*, unsigned int*, unsigned int, char*);
-struct HuffTreeNode* buildHuffTreeFindRoot(char*, unsigned int*, unsigned int);
-bool isLeaf(struct HuffTreeNode*);
+
+/*Functia parcurge arborele pentru a gasi codul pentru fiecare caracter*/
+void printEncodedChars(char* charArray, unsigned int* freqArray, unsigned int size, char* outputFile);
+
+/*Functia parcurge fisierul .in si afiseaza textul codat*/
+void printEncodedText(char* inputFile, char* outputFile, char* charArray, unsigned int* freqArray, unsigned int size);
+
+/*Functia parcurge fisierul de intrare si gaseste caracterul pentru fiecare secventa de text codat*/
+void printDecodedText(char* inputFile, char* outputFile, char* charArray, unsigned int* freqArray, unsigned int size);

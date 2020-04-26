@@ -139,13 +139,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="data.c" />
-    <ClCompile Include="encode_decode.c" />
     <ClCompile Include="huff.c" />
     <ClCompile Include="HuffmanCoding.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data.h" />
-    <ClInclude Include="encode_decode.h" />
     <ClInclude Include="huff.h" />
   </ItemGroup>
   <ItemGroup>

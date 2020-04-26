@@ -193,7 +193,9 @@ struct HuffTreeNode* buildHuffTreeFindRoot(char* charArray, unsigned int* freqAr
     return root;
 }
 
-/*Functia afiseaza codurile pentru fiecare caracter*/
+/*FUNCTII PENTRU AFISAREA CODURILOR*/
+
+/*Functia parcurge arborele pentru a gasi codul pentru fiecare caracter*/
 void printCodes(struct HuffTreeNode* root, bool* printArr, unsigned int currSize, FILE* fout)
 {
     if (root->left)
@@ -234,6 +236,7 @@ void printCodes(struct HuffTreeNode* root, bool* printArr, unsigned int currSize
     }
 }
 
+/*Functia printeaza carcaterele codate*/
 void printEncodedChars(char* charArray, unsigned int* freqArray, unsigned int size, char* outputFile)
 {
     struct HuffTreeNode* root = buildHuffTreeFindRoot(charArray, freqArray, size);
@@ -246,5 +249,100 @@ void printEncodedChars(char* charArray, unsigned int* freqArray, unsigned int si
     assert(fout != NULL);
 
     printCodes(root, printArr, 0, fout);
+    fclose(fout);
+}
+
+/*FUNCTII PENTRU AFISAREA TEXTULUI CODAT*/
+
+/*Functia printeaza codul unui caracter*/
+void ChartoCode(struct HuffTreeNode* root, char ch, bool* printArr, unsigned int currSize, FILE* fout)
+{
+    if (root->left)
+    {
+        printArr[currSize] = 0; /// pentru partea stanga a arborelui asignam valoarea 0;
+        ChartoCode(root->left, ch, printArr, currSize + 1, fout); /// apelam recursiv
+    }
+
+    if (root->left)
+    {
+        printArr[currSize] = 1; /// pentru partea dreapta a arborelui asignam valoarea 0;
+        ChartoCode(root->right, ch, printArr, currSize + 1, fout); /// apelam recursiv
+    }
+
+    if (isLeaf(root) == true && root->ch == ch) // am gasit caracterul ch in arbore, printam printArr[]
+    {
+        for (unsigned int i = 0; i < currSize; i++)
+            fprintf(fout, "%d", printArr[i]);
+        
+    }
+}
+
+/*Functia parcurge fisierul .in si afiseaza textul codat*/
+void printEncodedText(char* inputFile, char* outputFile, char* charArray, unsigned int* freqArray, unsigned int size)
+{
+    struct HuffTreeNode* root = buildHuffTreeFindRoot(charArray, freqArray, size);
+
+    bool* printArr = (bool*)malloc((size / 2) * sizeof(bool)); // printArr este vectorul in care memoram codul de pe fiecare nivel; 
+                                                               // (size / 2) - numar maxim de nivele ale arborelui
+    assert(printArr != NULL);
+
+    FILE* fin = fopen(inputFile, "r");
+    assert(fin != NULL);
+
+    FILE* fout = fopen(outputFile, "w");
+    assert(fout != NULL);
+
+
+    char ch;
+    while (1) // parcurgem intreg fisierul
+    {
+        ch = fgetc(fin);
+
+        /// verificam daca ch este EOF
+        if (ch == EOF) break;
+
+        /// printam codul pentru caracterul ch
+        ChartoCode(root, ch, printArr, 0, fout);
+    }
+
+    fclose(fin);
+    fclose(fout);
+}
+
+/*FUNCTII PENTRU PRINTAREA TEXTULUI DECODAT*/
+
+/*Functia parcurge fisierul de intrare si gaseste caracterul pentru fiecare secventa de text codat*/
+void printDecodedText(char* inputFile, char* outputFile, char* charArray, unsigned int* freqArray, unsigned int size)
+{
+    struct HuffTreeNode* root = buildHuffTreeFindRoot(charArray, freqArray, size);
+    struct HuffTreeNode* tempRoot = root;
+    
+    FILE* fin = fopen(inputFile, "r");
+    assert(fin != NULL);
+
+    FILE* fout = fopen(outputFile, "w");
+    assert(fout != NULL);
+
+    char ch;
+    while (1) // parcurgem intreg fisierul
+    {
+        ch = fgetc(fin);
+
+        /// verificam daca ch este EOF
+        if (ch == EOF) break;
+
+        if (ch == '0') // verificam valoarea caracterului
+            tempRoot = tempRoot->left; // daca este 0, intram pe ramanura din stanga
+        else
+            tempRoot = tempRoot->right; // daca eeste 1, intram pe ramura din dreapta
+
+        if (isLeaf(tempRoot) == true) // daca am ajuns la o frunza, am ajuns la un carcater
+        {
+            fprintf(fout, "%c", tempRoot->ch); // printam caracterul
+            tempRoot = root; // ne intoarcem in radacina
+        }
+    }
+
+    fclose(fin);
     fclose(fout);
 }
