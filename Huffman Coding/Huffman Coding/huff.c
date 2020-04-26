@@ -249,6 +249,8 @@ void printEncodedChars(char* charArray, unsigned int* freqArray, unsigned int si
     assert(fout != NULL);
 
     printCodes(root, printArr, 0, fout);
+    free(printArr);
+
     fclose(fout);
 }
 
@@ -304,6 +306,7 @@ void printEncodedText(char* inputFile, char* outputFile, char* charArray, unsign
         /// printam codul pentru caracterul ch
         ChartoCode(root, ch, printArr, 0, fout);
     }
+    free(printArr);
 
     fclose(fin);
     fclose(fout);

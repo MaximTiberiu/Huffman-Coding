@@ -11,11 +11,13 @@ bool isFileEmpty(char* inputFile)
     FILE* fin = fopen(inputFile, "r");
 
     char ch = fgetc(fin);
-    
-    if (ch != EOF) return false; // fisierul nu este gol
-    return true; /// fisierul este gol
-
     fclose(fin);
+    bool ret;
+    
+    if (ch != EOF) ret = false; // fisierul nu este gol
+    ret = true; /// fisierul este gol
+
+    return ret;
 }
 
 /* countChars contorizeaza fiecare caracter prezent in textul supus codarii*/
@@ -74,6 +76,7 @@ void printCountedChars(unsigned int* freqCharsArray, char* outputFile)
                 break;
             }
         }
+    fclose(fout);
 }
 
 /* Functia construieste cei doi vectori care vor contine caracterul si nummarul de aparitii ale caracterului din text*/

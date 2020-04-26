@@ -25,11 +25,15 @@ int main()
 
         unsigned int size = 0;
         createCharsFreqArrays(&charArray, &freqArray, freqCharsArray, &size);
+        free(freqCharsArray);
 
         printEncodedChars(charArray, freqArray, size, "codes.out");
 
         printEncodedText("data.in", "encodedText.out", charArray, freqArray, size);
         printDecodedText("encodedText.out", "decodedText.out", charArray, freqArray, size);
+
+        free(charArray);
+        free(freqArray);
 
         printf("Codarea Huffman a fost realizata cu succes!\nVerifica urmatoarele fisiere:\n");
         printf("\t-'countedChars.out', pentru frecventa caracterelor;\n");
